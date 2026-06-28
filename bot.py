@@ -76,16 +76,7 @@ async def send_alert(update: Update, context: ContextTypes.DEFAULT_TYPE, command
         )
 
 
-# ── Individual command handlers ─────────────────────────────────────────────
-
-async def cmd_clear(u, c):    await send_alert(u, c, "clear")
-async def cmd_clouds(u, c):   await send_alert(u, c, "clouds")
-async def cmd_overcast(u, c): await send_alert(u, c, "overcast")
-async def cmd_rain(u, c):     await send_alert(u, c, "rain")
-async def cmd_storm(u, c):    await send_alert(u, c, "storm")
-async def cmd_rainbow(u, c):  await send_alert(u, c, "rainbow")
-async def cmd_night(u, c):    await send_alert(u, c, "night")
-async def cmd_fog(u, c):      await send_alert(u, c, "fog")
+# --- Commands are dynamically registered in main() from config.MESSAGES ---
 
 
 # ── /start ──────────────────────────────────────────────────────────────────
@@ -172,22 +163,19 @@ def main():
         .build()
     )
 
-    # Register command handlers
-    handlers = {
-        "start":    cmd_start,
-        "help":     cmd_help,
-        "status":   cmd_status,
-        "clear":    cmd_clear,
-        "clouds":   cmd_clouds,
-        "overcast": cmd_overcast,
-        "rain":     cmd_rain,
-        "storm":    cmd_storm,
-        "rainbow":  cmd_rainbow,
-        "night":    cmd_night,
-        "fog":      cmd_fog,
-    }
-    for cmd, fn in handlers.items():
-        app.add_handler(CommandHandler(cmd, fn))
+    # Register standard command handlers
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("help", cmd_help))
+    app.add_handler(CommandHandler("status", cmd_status))
+
+    # Dynamically register handlers for each weather command configured in config.py
+    def make_handler(command_name: str):
+        async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            await send_alert(update, context, command_name)
+        return handler
+
+    for cmd in MESSAGES.keys():
+        app.add_handler(CommandHandler(cmd, make_handler(cmd)))
 
     # Silently ignore plain text
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, ignore_text))

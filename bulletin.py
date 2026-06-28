@@ -26,8 +26,8 @@ def make_bulletin(command: str, city: dict) -> str:
     label     = msg_cfg["label"]
     condition = msg_cfg["condition"]
 
-    # Pick a random template for this condition bucket
-    template_key = condition if condition != "any" else command
+    # Pick a random template for this command if it has custom templates, otherwise fall back to condition
+    template_key = command if command in TEMPLATES else condition
     pool = TEMPLATES.get(template_key) or TEMPLATES.get("clear")
     body = random.choice(pool).format(city=city["name"])
 

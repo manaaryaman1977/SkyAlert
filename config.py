@@ -55,6 +55,17 @@ CITIES = [
     {"name": "Varanasi",    "lat": 25.3176, "lon": 82.9739},
     {"name": "Agra",        "lat": 27.1767, "lon": 78.0081},
     {"name": "Ahmedabad",   "lat": 23.0225, "lon": 72.5714},
+    # Expanded Cities (10 more cities to make 30)
+    {"name": "Srinagar",    "lat": 34.0837, "lon": 74.7973},
+    {"name": "Gulmarg",     "lat": 34.0489, "lon": 74.3804},
+    {"name": "Leh",         "lat": 34.1526, "lon": 77.5771},
+    {"name": "Cherrapunji", "lat": 25.2702, "lon": 91.7325},
+    {"name": "Shillong",    "lat": 25.5788, "lon": 91.8833},
+    {"name": "Pondicherry", "lat": 11.9416, "lon": 79.8083},
+    {"name": "Kodaikanal",  "lat": 10.2381, "lon": 77.4892},
+    {"name": "Jaisalmer",   "lat": 26.9157, "lon": 70.9083},
+    {"name": "Udaipur",     "lat": 24.5854, "lon": 73.7125},
+    {"name": "Bhopal",      "lat": 23.2599, "lon": 77.4126},
 ]
 
 # ============================================================
@@ -69,49 +80,49 @@ MESSAGES = {
         "emoji":     "☀️",
         "label":     "Clear Sky Advisory",
         "condition": "clear",
-        "meaning":   "I'm happy.",
+        "meaning":   "Kya kar rahe jaanu😘",
     },
     "clouds": {
         "emoji":     "🌤",
         "label":     "Partly Cloudy Update",
         "condition": "partly_cloudy",
-        "meaning":   "I'm thinking about you.",
+        "meaning":   "Aapki yaad aarahi jaan🥺",
     },
     "overcast": {
         "emoji":     "☁️",
         "label":     "Cloud Cover Alert",
         "condition": "cloudy",
-        "meaning":   "I want to talk.",
+        "meaning":   "I miss you jaanu🥲",
     },
     "rain": {
         "emoji":     "🌧",
         "label":     "Rain Advisory",
         "condition": "rain",
-        "meaning":   "I miss you.",
+        "meaning":   "Aapke bina ro rahe, jaldi reply😭",
     },
     "storm": {
         "emoji":     "⛈",
         "label":     "Thunderstorm Warning",
         "condition": "storm",
-        "meaning":   "I really miss you.",
+        "meaning":   "Mera dil ro raha hai jaan❤️🩹",
     },
     "rainbow": {
         "emoji":     "🌈",
         "label":     "Post-Rain Visibility Report",
         "condition": "any",
-        "meaning":   "You made my day.",
+        "meaning":   "Love you jaan💖",
     },
-    "night": {
-        "emoji":     "🌙",
-        "label":     "Night Weather Advisory",
-        "condition": "any",
-        "meaning":   "Good night.",
+    "snow": {
+        "emoji":     "❄️",
+        "label":     "Cold Wave Advisory",
+        "condition": "cloudy",
+        "meaning":   "hamko cuddle karna hai baby🔥",
     },
-    "fog": {
-        "emoji":     "🌫",
-        "label":     "Low Visibility Alert",
-        "condition": "fog",
-        "meaning":   "I'm lost without you.",
+    "heatwave": {
+        "emoji":     "🥵",
+        "label":     "Thermal Advisory",
+        "condition": "clear",
+        "meaning":   "Jaan ham uttejit ho rahe hai😈",
     },
 }
 
@@ -156,15 +167,14 @@ TEMPLATES = {
         "Improving conditions reported across {city} following earlier showers.\nResidual cloud clearing gradually.",
         "Weather has improved significantly over {city}.\nSkies are brightening after the morning rain.",
     ],
-    "night": [
-        "Overnight weather advisory issued for {city}.\nTemperatures will dip; light winds expected.",
-        "Night conditions across {city} remain stable.\nClear to partly cloudy skies through dawn.",
-        "Calm overnight weather is forecast for {city}.\nNo precipitation expected until morning.",
-        "Evening advisory: Comfortable conditions persist over {city}.\nVisibility good; winds light and variable.",
+    "snow": [
+        "Cold wind currents sweep through {city}.\nResidents are advised to dress warmly and stay indoors.",
+        "A significant drop in temperature is reported over {city}.\nFrosty conditions are expected during overnight hours.",
+        "Sub-zero temperatures developing in high-altitude zones of {city}.\nWinter advisory remains in effect.",
     ],
-    "fog": [
-        "Dense fog advisory issued for {city}.\nVisibility has dropped below 200 metres in low-lying areas.",
-        "Foggy conditions are developing over {city}.\nMotorists are urged to use fog lamps.",
-        "Low visibility alert for {city}.\nFog patches may persist through mid-morning.",
+    "heatwave": [
+        "High temperature warning issued for {city}.\nAvoid prolonged outdoor exposure during afternoon peak hours.",
+        "Hot dry winds continue to dominate {city}.\nStay hydrated and remain indoors where possible.",
+        "Above-average seasonal temperatures recorded in {city}.\nHeat index remains elevated.",
     ],
 }
