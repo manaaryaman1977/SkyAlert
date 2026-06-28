@@ -1,0 +1,12 @@
+# Virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Local environment variables containing credentials
+.env
+
+# OS-specific files
+.DS_Store
