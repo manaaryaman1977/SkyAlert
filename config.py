@@ -25,8 +25,8 @@ YOUR_ID = int(YOUR_ID_RAW)
 HER_ID = int(HER_ID_RAW)
 
 # YOUR_NAME / HER_NAME are used only in the /help text visible to each of you
-YOUR_NAME    = "A"
-HER_NAME     = "B"
+YOUR_NAME    = "User"
+HER_NAME     = "User"
 
 # --- Timezone for bulletin timestamps ---
 TIMEZONE     = "Asia/Kolkata"
